@@ -1,0 +1,10 @@
+# node-aws-android-chromium
+Node, AWS CLI, Android and Chromium docker image
+
+- ANDROID_SDK_VERSION="6200805_latest"
+- ANDROID_BUILD_TOOLS_VERSION="29.0.3"
+- CHROMIUM_VERSION="80.0.3987.163-0ubuntu0.18.04.1"
+- AWS_CLI_VERSION="1.18.39"
+- PYTHON_MAJOR_VERSION="3.6"
+- NODE_VERSION="13.11.0"
+- NVM_VERSION="0.35.3"

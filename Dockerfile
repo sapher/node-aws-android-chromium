@@ -2,7 +2,7 @@
 ARG ANDROID_SDK_VERSION="6200805_latest"
 ARG ANDROID_HOME="/opt/android-sdk"
 ARG ANDROID_BUILD_TOOLS_VERSION="29.0.3"
-ARG CHROMIUM_VERSION="80.0.3987.163-0ubuntu0.18.04.1"
+ARG CHROMIUM_VERSION="81.0.4044.138-0ubuntu0.18.04.1"
 ARG AWS_CLI_VERSION="1.18.39"
 ARG PYTHON_MAJOR_VERSION="3.6"
 ARG NODE_VERSION="13.11.0"
@@ -40,16 +40,19 @@ ARG NODE_VERSION
 ARG NVM_VERSION
 ARG PYTHON_MAJOR_VERSION
 ENV ANDROID_HOME=${ANDROID_HOME}
+ENV CHROME_BIN=/usr/bin/chromium-browser
 RUN apt-get update \
   # Install
   && apt-get install -y --no-install-recommends \
-    chromium-browser=${CHROMIUM_VERSION} \
-    python3=${PYTHON_MAJOR_VERSION}.7-1~18.04 \
-    openjdk-8-jre \
-    openjdk-8-jdk \
-    gradle \
-    jq \
-    curl \
+  chromium-browser=${CHROMIUM_VERSION} \
+  python3=${PYTHON_MAJOR_VERSION}.7-1~18.04 \
+  openjdk-8-jre \
+  openjdk-8-jdk \
+  gradle \
+  jq \
+  git \
+  curl \
+  openssh-client \
   # NodeJS
   && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash \
   && . /root/.nvm/nvm.sh \

@@ -1,6 +1,7 @@
 # Setup build arguments with default versions
 ARG ANDROID_SDK_VERSION="6200805_latest"
 ARG ANDROID_HOME="/opt/android-sdk"
+ARG ANDROID_SDK_ROOT="/opt/android-sdk"
 ARG ANDROID_BUILD_TOOLS_VERSION="29.0.3"
 ARG CHROMIUM_VERSION="81.0.4044.138-0ubuntu0.18.04.1"
 ARG AWS_CLI_VERSION="1.18.39"
@@ -35,12 +36,15 @@ RUN pip3 install awscli==${AWS_CLI_VERSION}
 FROM ubuntu:18.04
 WORKDIR /workspace
 ARG ANDROID_HOME
+ARG ANDROID_SDK_ROOT
 ARG CHROMIUM_VERSION
 ARG NODE_VERSION
 ARG NVM_VERSION
 ARG PYTHON_MAJOR_VERSION
 ENV ANDROID_HOME=${ANDROID_HOME}
 ENV CHROME_BIN=/usr/bin/chromium-browser
+# access android tools
+ENV PATH="${ANDROID_HOME}/tools/bin:${PATH}"
 RUN apt-get update \
   # Install
   && apt-get install -y --no-install-recommends \
